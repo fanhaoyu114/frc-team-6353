@@ -130,4 +130,110 @@ export default function Home() {
               </div>
             </TerminalCard>
             <TerminalCard terminal="TERMINAL_C" title="Social Outreach">
-              <div className="space
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold">STEM Enlightenment</h4>
+                  <p className="text-sm text-gray-600">Programs for Zhangjiang Kindergarten</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Industry Visits</h4>
+                  <p className="text-sm text-gray-600">Tours at Fourier Intelligence</p>
+                </div>
+                <div className="grid grid-cols-2 gap-1">
+                  <ImageSlot src={images.outreach.kindergarten} alt="Kindergarten" label="📷" />
+                  <ImageSlot src={images.outreach.industry} alt="Industry" label="📷" />
+                </div>
+              </div>
+            </TerminalCard>
+          </div>
+        </div>
+      </section>
+
+      {/* SUSTAINABILITY LOOP */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader number="04" title="The Sustainability Loop" />
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div>
+                <span className="inline-block px-2 py-1 text-sm border border-gray-300 rounded mb-2">Partnership</span>
+                <h3 className="text-xl font-semibold">Strategic Partnership</h3>
+                <p className="text-gray-600">Long-term collaboration with Zhangjiang Group and HAAS.</p>
+              </div>
+              <div>
+                <span className="inline-block px-2 py-1 text-sm border border-gray-300 rounded mb-2">Support</span>
+                <h3 className="text-xl font-semibold">Institutional Support</h3>
+                <p className="text-gray-600">Deeply rooted in HSEFZ and ECNU.</p>
+              </div>
+              <div>
+                <span className="inline-block px-2 py-1 text-sm border border-gray-300 rounded mb-2">Growth</span>
+                <h3 className="text-xl font-semibold">The Positive Loop</h3>
+                <div className="bg-gray-100 p-3 rounded font-mono text-sm">
+                  Technical Excellence → Resource Acquisition → Talent Cultivation
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <ImageSlot src={images.sustainability.leadership} alt="Leadership" label="Leadership / School Support Photo" />
+              <ImageSlot src={images.sustainability.partnership} alt="Partnership" label="Partnership Photo" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* THE ARCHITECTS */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <SectionHeader number="05" title="The Architects" />
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+            {teamMembers.map((member, index) => (
+              <div key={member.id} className="member-card bg-white rounded-lg overflow-hidden border border-gray-200 transition-all cursor-pointer">
+                <div className="aspect-square">
+                  <ImageSlot src={images.members[index]} alt={member.name} label={String(index + 1)} />
+                </div>
+                <div className="p-2 text-center">
+                  <p className="text-sm font-medium truncate">{member.name}</p>
+                  {member.role === "Captain" && (
+                    <span className="inline-block mt-1 px-2 py-0.5 text-xs bg-red-600 text-white rounded">Captain</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-auto bg-black text-white py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-6">LOG_05: DATABASE</h2>
+          <hr className="border-gray-700 max-w-xs mx-auto mb-8" />
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-semibold mb-3">Contact</h3>
+              <div className="space-y-1 text-gray-400 text-sm">
+                <p>Email: <a href="mailto:fanhaoyu@hsefz.cn" className="text-red-400 hover:underline">fanhaoyu@hsefz.cn</a></p>
+                <p>Location: Shanghai, China</p>
+                <p>School: <a href="https://www.hsefz.cn/" target="_blank" className="text-red-400 hover:underline">hsefz.cn</a></p>
+              </div>
+              <h3 className="font-semibold mt-6 mb-3">WeChat</h3>
+              <ImageSlot src={images.footer.qrCode} alt="QR Code" label="QR Code" />
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">Affiliations</h3>
+              <div className="flex gap-3">
+                <ImageSlot src={images.footer.badge1} alt="Badge 1" label="Badge 1" />
+                <ImageSlot src={images.footer.badge2} alt="Badge 2" label="Badge 2" />
+              </div>
+              <div className="text-gray-500 text-sm mt-6">
+                <p>FRC Team 6353</p>
+                <p>No.2 High School of East China Normal University</p>
+                <p>© 2016–2026 All Rights Reserved</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
