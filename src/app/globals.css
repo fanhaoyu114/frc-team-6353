@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #dc2626;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0%, 100% {
+    text-shadow: 2px 0 #dc2626, -2px 0 #3b82f6;
+  }
+  20% {
+    text-shadow: -2px 0 #dc2626, 2px 0 #3b82f6;
+  }
+  40% {
+    text-shadow: 2px 0 #dc2626, -2px 0 #3b82f6;
+  }
+  60% {
+    text-shadow: -2px 0 #dc2626, 2px 0 #3b82f6;
+  }
+  80% {
+    text-shadow: 2px 0 #dc2626, -2px 0 #3b82f6;
+  }
+}
+
+.glitch-text {
+  animation: glitch 3s infinite;
+}
+
+/* Scan line */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to bottom, transparent, rgba(220, 38, 38, 0.3), transparent);
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Placeholder style */
+.image-placeholder {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+  border: 2px dashed #d4d4d4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a3a3a3;
+}
+
+/* Card hover effect */
+.member-card:hover {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
